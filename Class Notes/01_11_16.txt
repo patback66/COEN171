@@ -1,0 +1,96 @@
+1_11_15.txt
+
+Chapter 1
+---------
+Objectives
+	-	Why
+	-	Main PL categories
+	-	Implementation/Environments
+
+PL Categories
+	-	Imperative 
+		-	Compile (C,C++)
+		-	Interpreted (PHP, Python, Matlab)
+		-	Hybrid (Java, C#)
+	-	OOP
+	-	Functional
+	-	Logic
+	-	Concurrent
+
+How are PL executed?
+	-	Computers are based 
+		-	Von Neuman architecture
+		-	CPU <--> Mem
+	-	Layers
+		-	App PL (Application layer)
+			-	C/C++/Java
+		-	System (OS)
+			-	Compiler, Interpreter, Loader
+		-	Hardware
+			-	Binary
+
+PL Kind?
+	-	Compile
+		-	(C)
+			if (a<10)
+				b=20;
+			-	High-Level (.c)
+			-	Cannot this directly in the computer
+				-	must first call the compiler
+				-	get assembly code (.asm)
+				-	MIPSassembly 
+					beq $t1 $tp linked
+					exit:
+					label mov $t1 r0
+				-	build to machine code (binary, .exe)
+					-	00101....
+		-	Write in a high level language, then compile to a machine code
+	-	Interpreted
+		-	Python
+			if a<10:
+				b=20;	
+			-	interpreted into executable
+	-	Hybrid
+		-	Java 
+			if(a<10)
+				b=20;
+			-	compile to intermedian code
+				-	produces specific code for the machine before it runs
+				-	platform independent
+			-	Just in time compiler
+	-	Advantages of Compiled
+		-	FASTER
+		-	Architecture independent
+		-	Less flexible
+
+	tutorialpoints.com
+
+Chapter 3
+---------
+-	Describe Syntax and semantic for a PL
+-	Describe language syntax using BNF
+-	Define/example semantic
+
+-	Language is a set of sentences
+	-	SYNTAX
+	-	English
+		-	alp -> 26 letters
+		-	words ~ 10,000+ words (still adding)
+		-	sentences -> infinite
+	-	Context-Free grammar
+		-	Bakus-Baur Form (Algol)
+		-	BNF: set of rules
+			-	set of terminals
+			-	set of nonterminals
+
+	-	defining grammar
+		a=7;
+		a = b + 7;
+		-	variable names: a, b, c
+		-	operator: +,*
+		-	BNF grammar: <assign> -> <variable> = <constant>; | <variable> = <variable> <operation> <constant>;
+			-	<variable> -> a|b|c
+				-	set of terminal symbols
+			-	<constant> -> <digits>|<digit><constant>
+			-	<digits> -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
+			-	<operator> -> + | *

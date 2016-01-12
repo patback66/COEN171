@@ -1,0 +1,68 @@
+1_08_16
+
+COEN 171
+Maria Pantoja
+Principles of Prog Lang
+
+Programming Languages: AppInventor, Python, C++/java, Scala, Prolog
+
+1 Midterm
+Quizzes: Open book, open note, online, 3 retries
+
+Objectives: CH 1
+
+-Explaining why we need to study programming languages
+-Explaininig main language categories
+-Implementation methods
+
+-Why we ahve so many programming Languages
+	-	>100
+	-	better express our algorithms/problems
+	-	Speed
+	-	Hardware compatability
+		-	can be ensured by compiler
+	-	Hardware/Operating System independent
+	-	Different tasks
+	-	Improve PL
+	-	Cost
+
+-Why PL
+	-	Cover details of PL
+	-	Prove if you know a PL "well" then learning another is easy
+
+-How to Choose a PL?
+	-	Easy to read
+		-	Be able to debug
+	-	Easy to write
+		-	Syntax
+			-	how clean is it?
+		-	Interpreted or Compiled
+	-	Cost
+	-	Portability
+
+-Categories of PL
+	-	Imperative
+		-	var, assignmentn, cond stm
+		-	C, Assembly, Fortran, Basic, Python, 
+		-	Many of the original PL
+	-	Object Oriented Programming (OOP)
+		-	C++, Java, Python, Ruby, PHP
+		-	many modern PL
+		-	Creates specific problems and solutions
+	-	Functional Programming
+		-	(Pure) doesn't declare variables
+			-	everything is a function, operates on a function
+			-	create a function, solve a function, return a function, operate on a set
+		-	Lisp, Scala, 
+		-	Good for scaling
+		-	many have this sort of functionality
+	-	Logic Programming
+		-	Prolog
+		-	Completely parallel
+		-	built to try to immitate how humans think
+	-	Concurrenct/Parallel
+		-	Many have this - make use of multiple cores
+		-	C (Pthread), Java, C++, 
+
+
+--------------------------------------------------------------------------------------------
