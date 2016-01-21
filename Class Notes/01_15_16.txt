@@ -1,0 +1,90 @@
+01_15_16.txt
+
+Sat 23 10-11:45 recovery class EC 325
+
+Declaring a constant in C
+	7
+	#define a 10;
+	
+	int const a;
+	float
+		+/- int.int 2e10
+
+Objectives
+	-	BNF syntax
+		a	Operator precedence						these have ambiguity
+		b 	if statements
+
+	-	Extended BNF
+	-	Semantics
+
+	a = b; a = a + b * c;
+		Ambiguous -> proof -> Parse Tree -> a=(a+b)*c; a = a + (b * c);
+	<assign> -> <id> = <expr>
+	<id> -> a | b | c | d
+	<expr> -> <expr> + <expr> | <expr> * <expr> | (<expr>) | <id>
+		No enforcing the order of precedence
+			-	need to write several rules
+			-	lowest precedence highest on rules
+			-	highest precedence lowest on rules
+
+	<expr> -> <expr>+<term>|<term>
+	<term> -> <term>*<factor>|<factor>
+	<factor> -> <id>|(<expr>)
+
+	<expr> -> <expr>+<term>|<term>|<expr>-<term>
+	<term> -> <term>*<factor>|<factor>|<term>/<factor>
+	<factor> -> <id>|(<expr>)
+
+	if(a<b)a=10;
+	if(a<b)
+		a=10;
+	else
+		b=10;
+	if(a<b) {
+		a=10;
+		b=20;
+	} else {
+
+	}
+
+	<if-stmt> -> if (<cond-st>) <stmt>;|if(<cond-st>)<stmt>;else<stmt>;|if(cond-stmt>){<stmts>};else{<stmts>}
+
+	if(a==10)
+	if(b==20)
+		a=10;
+	else
+		b=20;
+
+	if(a==10)
+		if(b==20)
+			a=20;		//dangling
+	else
+		b=20;
+
+	if a<10:
+		a=10
+		b=20
+
+BNF
+	-	set rules
+	-	terminals
+	-	nonterminals
+
+extended BNF
+	-	adds 3 things
+	-	Alternation ( )
+		sign->(" "|+|-)
+		-	one of these
+	-	Optional [...]
+		<if-st>->"if""()"<cond>")"stmt[else<stmt>]
+	-	Repetition {...}
+
+semantic
+	a=-7;
+	b=7;
+	-	operational
+		a=b-7;
+
+
+

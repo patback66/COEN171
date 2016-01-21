@@ -1,0 +1,72 @@
+01_20_16
+COEN 171 Programming Languages
+
+Chapter 5
+Variables
+  - Describe variables and their properties
+  - explaining binding and scope
+    - variable is related to cells in memory
+
+Properties
+  - name
+    - seq of characters
+      - C: start with _ or letter
+        - {_,letter}{letter,digits}
+        - How many: length of a line (255 char usually)
+        - uses 63 char
+          - 32 char for extern
+        -  Java, c++, etc: how many? any
+    - Case sensitive
+      - naming convention
+        - camelCase
+        - lowercase
+        - Hungarian
+        - _
+    - Reserved Word
+  -   type
+  - data/value
+  - address
+    - The same variable can have different addresses
+      - Virtual Memory
+      - Stack
+      - C->pointer
+    - That you can have different variables associated with the same address
+      - int restrict *p;
+  - scope
+    - Global
+      - C/C++: outside of main
+      - Java:X Security
+      - Python, Perl: Yes
+    - Local
+  - lifetime
+  - binding
+    - association
+      - name->type
+      - type->value
+    - When does the binding happen?
+      - Time
+      - Static Time -> compile time
+      - Dynamic Time -> run time
+
+  1)  Name->type
+    - Explicit
+      - C: int a;
+    - Implicit
+      $a=7 //after being declared, can only have an integer
+    - Type inference
+      $a=7
+      $a=[7,2,3]
+    - dynamic
+      - perl, python, matlab
+      - flexible
+      - slow
+  2)  Type->value
+    - Static
+      - C: int static a;
+    - Stack var
+      -  when the func is on exec
+        int f(int d) {
+          int b;
+          return b+d'
+        }
+    - Dynamic ->malloc/free || new/delete

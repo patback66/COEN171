@@ -1,0 +1,89 @@
+01_13_16
+
+Chapter 3
+-	Using BNF notation to create syntax grammar for a PL
+	-	Set rules
+	-	Set terminals
+	-	set non-terminals
+
+1. Create the grammar for var declaration
+C/Java style
+
+<types> -> int | float
+	-	Types is a token -> word in human language
+//int a;
+//int a,b;
+<var> -> <non-digits>|<non-digit>,<var>
+
+<non-digit> -> a | b | c | d
+
+2. How to check if correct syntax
+	a.	build a parse tree
+		int a;
+			<declaration>
+		Type 		var 		i
+		int			non-digit
+					a	
+			+ good
+
+		int a
+				<declaration>
+		type 		var		; //but there is no ';' so the tree fails
+
+		int a,b,c;
+					declaration
+		type 		vars 				;	
+		int 		non-digts,<var>		
+				a,	nondigits,<var>
+					b, nondigit
+						c
+		BFS
+			-	we know it's a tree, so we can optimize
+	b.	Left derivation
+		int a,b;
+		<declaration> -> <types><var>;
+			=int <nondigit>,<var>;
+			=int a,<non-digit>;
+			=int a,b;
+
+Create a syntax grammar for arithmetic expr.
+	a = 7;
+	a = b;
+	a = a + 201;
+
+	<assign>-><var>=<term>;
+	<term>-><const>|<var>|<var>+<const>|<term>+<term>
+	<var>->a|b|c|d
+	<const>-><digits>|<digits><const>
+	<digits>->0|1|2|3|4|...|9
+	<op> -> +|-|*|/
+			<op> -> + | -
+			<op1> -> * | /
+			-	allows for PEMDAS
+
+	Parse tree
+		a=b+c+d;
+		assign
+		<var> = <term> ;
+		a <term> + <term>
+		  var  <term> + <term>
+		   b    <var>   <var>
+		         c        d
+     a = b + c * d;
+     	-	need to set up order of operations
+ 	a = b + ( c * d);
+ 	a = (b + c) * d;
+ 		-	need to evaluate the syntax, not so much symantex
+
+	<assign>
+	<var>	= 	<term> 	;
+	a 			<term>		<op> 	<term>
+				<var> 		 +		<var>
+				c 			 * 		d
+
+	<assign>
+	<var> 	= 	<term> 	;
+	a 			<term> 		<op> 	<term>
+				<term> <op> <term> 	* 	var
+				<var> 	+ 	<var> 		d
+				b 			c 			
