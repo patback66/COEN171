@@ -1,0 +1,91 @@
+01_27_16
+COEN 171
+
+Objectives
+Chapter 6: Data Types
+  - Non Primitive
+    - Strings
+    - Arrays
+    - Associative arrays
+      - Key, value
+      - Implem -> Hash
+    - Tuples/structs
+      - C->struct
+      - COBOL
+        - first to get a compiler
+        - Grace Hopper
+    - Pointer/references
+      - C/C++ -> variable that contains a hardware address
+        - Pascal, C#
+      - Advantage: flexible
+        - Aliasing
+        - Manipulates mem. directly
+        - Fast
+        - Pointer arithmetic
+      - Problems
+        - Read/write anywhere
+          - Can overreach and corrupt memory
+        - Can't check for safety
+        - Check for null
+        - Dangling pointer
+      - Solutions
+        - PL does not allow pointers -> Java
+        - C/C++
+          - Iterators -> C++
+          - Run Valgrid
+      - Dangling Pointer
+        - Example 1:
+          int * arrayPtr1;
+          int * arrayPtr2 = new int[100];
+          arrayPtr1=arrayPtr2;
+          delete[]arrayPtr2;
+          //now arrayPtr1 is a dangling pointer
+        - Example 2
+          char *dp=NULL{
+            char c='a;
+            dp=2c;'
+          }
+          //dp is now dangling
+        - Example 3
+          void func() {
+            char *dp=(char*)malloc(INT)
+            ...
+            free (dp);
+            //dp now dangling
+            //dp=null;
+          }
+        - Example 4
+          int *func(void) {
+            int num=123; //make it static
+            return &num;
+          }
+
+Memory Leak
+  - Example 1
+    - malloc -> free
+    - new -> delete
+    - DON'T FORGET FREE OR DELETE
+    - use software aging to test
+  - Example 2
+    int * a = malloc(10);
+    int * b = malloc(10);
+    a=b;//this leaks
+    //need to deallocate first
+    free(b); //also leaks
+  - Example 3
+    char * p = NULL;
+    for(int count = 0; count < 10; count++) {
+      p=(char*)malloc(10);
+    }
+    free(p); //only frees one of the allocated
+
+PL Scale
+  - PL implements
+    - Garbage collector
+      - deallocation of dynamic variables
+      - Lazy vs eager
+      - Counting ref
+      - C->no tools
+        - completely under program control
+
+MIDTERM NEXT WEEK

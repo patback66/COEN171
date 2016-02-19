@@ -1,0 +1,77 @@
+02_03_16
+COEN 171
+
+Objectives
+Chapter 9/10 Subprograms
+  - Parameter Passing
+  - Function Implementation
+
+Midterm: Friday
+  - Chapter 1-8
+
+Parameter Passing
+  - Value
+    = Copy of formal parameter not actual parameter
+    = Adv: Fast
+    = Dis: can't modify the caller func var storage
+  - Reference
+    = Copy the address
+    = Adv: you can modify your caller input parameter
+      - storage copy of reference
+    = Slower
+      - given access to function to change variables outside of the local variables
+      - Aliasing
+    = For example:
+      - array-> pass by ref
+      - some architectures optimize if size < 4 -> loads directly onto register
+  - Result
+    = C#
+      func(out int a)
+      {
+        ...
+        a=17;
+      }
+      Implement pointer
+      Value_result
+      Prob: Aliasing
+      func(int c, out int b)
+      {
+      ...
+      }
+      fun(a,a)-> depends on the PL
+  - Name X
+
+int func(int a) {
+  int b=7;
+  b=a+b;
+  return b;
+}
+
+void main(void) {
+  ...
+  int b = func(7);
+  ...
+}
+
+main:
+      mov R1 7
+      BL  func
+
+func:
+    mov r8 7
+    add r8,r1,r8 //2
+    mov r0,r8
+    ldr r8,[sp,#0]
+    add sp sp 1
+    mov pc lr
+
+Caller
+  - moves inputs into proper register
+  - stores lr=pc+4
+  - uncond branch to label
+Calee
+  - allocate memory on stack
+    - only one local (other is input parameter)
+  - Execute the body of function
+  - Place result in the return register
+  - Dealloc stack

@@ -1,0 +1,119 @@
+01_29_16
+COEN 171
+
+Chapter 6: Data Types
+  - How programming languages solve pointers
+  - Type Checking
+
+Chapter 7 - 8: Assignments
+  - Arithmetic
+    - Overloading
+    - Function side effects
+    - Conditional
+      - Short Circuit evaluation
+    - Repetition Statements
+
+How From PL solutions
+  - To not allow pointers
+  - Programmers not allowed to dealloc dynamic cells
+    - Garbage collector
+      - Eager - always slows you down
+      - Lazy  - rarely slows you down, but only when you run out of memory
+      - But either way, you are slowed down
+
+Implementation GC
+  - Reference counter
+    - Problems
+      - cycles
+      - slow
+    - Mark-sweep
+      - Steps:
+        - Mark-alls cell available
+        - One by one cells find if used
+        - Collect the ones not being used
+      - Problems: slow
+
+Type Checking
+  - T-> define range and op on it
+  - Strong Type
+    - Catch all type errors
+      - C? Union
+        - (void) pointer
+      - Expressions
+        int a = 5;
+        float b = 7.0
+      - Type Coertion:
+        - Implicit done PL
+          int->float
+          Upgrade
+      - Explicit
+        - C-> type cast
+          float a = 2.0; (int)
+          float b=(5/7)a; //gets 0
+          - float/int->float
+
+Assignments
+  - Inst. to comp
+    - var=expr;
+Arithmetic
+  - Operator precedence
+  - association
+  - Overloading
+    - Function of operator depends on the type
+    - C:
+        +->int, double, float
+        &-> inta=9; &a;
+         -> bitwise and
+         -> && conditional and
+    - Python
+      "a"+b"
+      "a"=="b"
+      print("a"*4)->aaaa
+    - Done by Prog
+      - C-> No
+      - C++ Yes
+
+Midterm
+  Friday -> Feb 5
+
+Monday Feb 1
+  - recovery class. 5.10-610 EC 108
+  - Review for midterm
+
+Function side Effects
+  a+f(a)
+  If f can modify a, then?
+    - do not allow side effect (transparent)
+    - Evaluate
+      - left-right
+      - right-left
+
+int a=5;
+int func(){
+  a=17;
+  return 3;
+}
+int main() {
+  a=a+func();
+}
+
+Conditional
+  - Short circuit evaluation
+    a=(a<b)&&(a<c)
+    - we stop evaluation of blocks when we know result
+    - and when any of blocks -> 0
+
+  a=(a==b) //=== do type checking
+  "7"==7
+
+  Repetition statements
+  for(init stms; cond; update stmts) {
+    //how to get out of here
+      - break
+        - out of break
+      - GOTO
+      - return
+        - out function where for loop is
+      - continue;
+        - skups next inst on for loop and for evaluation cond
+  }

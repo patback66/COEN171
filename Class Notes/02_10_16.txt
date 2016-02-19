@@ -1,0 +1,118 @@
+02_10_16
+COEN 171 Programming Languages
+
+OBjectives
+Tail Recursion
+OOP
+
+CH 11 Abstract Data Types
+
+Naive Non-Tail
+  int fact(int n) {
+    if(n<1) return 1;
+    else return n*fact(n-1);
+  }
+
+  How much stack does it need?
+    Depends on n
+
+Tail
+  int fact(int n, int acc) {
+    if(n<1) return acc;
+    else return fact(n-1, acc*n);
+  }
+
+  How much stack does it need?
+    2 memory calls for input parameter
+    1 stack frame
+
+  fact: cmp r0,1
+        beq label
+        mov r4 r1
+        mov pc lr
+  label: sub r0 r0 1
+         mult r1 r0 r1
+         b fact
+
+ Homework:
+  however you want to store your data
+  thre needs to be storage -> array
+  storage on disk -> text file or something
+  interface for a database
+
+CH11 Abst DT
+  - Data Type
+    = Range values
+    = Operations on it
+  - int
+    = range
+    = *, +
+  - Abstract DT
+    = describe the attributes
+
+DT
+  Birds:
+    - 2 legs
+    - feathers
+    ...
+
+User Defined DT
+  - Struct a {
+    int a;
+    int ar[100];
+  } a,b;
+
+  OOP
+    - Encapsulate
+      = Main attributes and range of values
+      = Operations on them
+
+User define DT
+  - in C++
+  - structs -> define else operations on attributes
+  class
+
+  class a {
+    int c;
+    void func(int d);
+  }
+
+  //By default members are private
+
+DT
+  - defines  range values operations
+  - Class -> Type
+  - Object -> instance of the calss
+  - Information Hiding
+    = Private
+    = Public
+    = Protected
+
+Implement Stack
+
+class stack {
+private:
+  int top;
+  int *arr;
+  int maxSize;
+  int size;
+public:
+  void push(int a);
+  int pop (void);
+  stack(void){top=-1,maxSize=100;arr=new int[100];}
+
+}; //have to provide a constructor
+
+void stack::push(int a) {
+  if(top==maxSize-1)
+    cerr<<"No space""
+  else
+    arr[++top]=a;
+}
+
+main {
+  int a;
+  stack myS;
+}
+
+parameterized DT

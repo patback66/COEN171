@@ -1,0 +1,89 @@
+02_08_16
+COEN 171
+
+Subprograms
+Implementation of a function
+  - simple
+  - recursion
+
+Caller
+  - place input param on register (if more than 4 than use the stack)
+  - branch and link to the callee
+Callee
+  - Allocate space on the stack
+    = local var
+    = input parameters -> 4
+  - Body funciton
+  - Place result on the register
+  - Deallocate memory from the stack
+
+Recursion
+  - We can't forget base case
+  - Recursive Step
+  - Uses stack
+
+Adv. algo. much easier
+  - to write with recursion
+
+Disadvantage
+  - slow if not careful
+  - A lot of overhead
+    - stack
+    - amount depends on value of input
+
+Types Recursions:
+  - Non-tail
+  - Tail the amount of stack consumed is fixed ~loop
+    - The last executed is the recursive call itself
+
+non-tail
+  rec() {
+    if() return
+    else return n+recur()
+  }
+
+non-tail
+  int fact(int n) {
+    if(n<1) return 1;
+    else return n*fact(n-1);
+  }
+
+  void main(void) {}
+
+  1)
+    add sp sp -2
+    sw r1,[sp,#0]
+    sw lr,[sp,#1]
+
+    cmp r1 1
+    bg label
+    mov r0 1 //base case
+    add sp sp 2
+    mov pc lr
+    label:
+      sub r1 r1 1
+      bl fact //recursive case
+
+      lw r1,[sp,#0
+      lw lr,[sp,#1]]
+      add sp sp 2
+      mult r0 r0 r1
+      mov pc lr
+
+  main:
+    mov r1 4
+    BL fact
+
+  fact:
+    n 4
+    lr 100
+
+Tail
+  int fact(int n, int acc) {
+    if(n<1) return acc;
+    else return fact(n-1,acc*n);
+  }
+
+  int fact(int n) {
+    return fact2(n,1);
+  }

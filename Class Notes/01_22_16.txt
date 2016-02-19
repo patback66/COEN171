@@ -1,0 +1,114 @@
+01_22_16
+COEN171 Programming Languages
+
+Chapter 5: Variables
+
+Abstraction of memory cell/s
+Properties
+  - Name
+    - how many char
+      - any
+      - C:63 only used
+    - case sensitive
+    - keywords
+  - address
+    - same var can have different
+    - different var can have same address - aliasing
+  - Type (CH6)
+    - Range of values
+    - Operations that can be performed
+  - Binding
+    - Var -> type
+    - Binding Type
+      - Explicit: int a;
+      - Implicit: $a=7
+      - Type Inference
+          $a=7
+          $a=[7,10,11]
+    - Type -> value
+    - Binding storage
+      - Static
+        - C: keyword static
+        - #define
+        - Ad: fast Dis: restrictive
+      - stack/local
+      - Heap:
+        - speific func to alloc dealloc storage
+    - Time?
+      - static/compiletime
+      - dynamic/exectime
+  - Scope
+    - When can we use the var
+      - local
+      - global
+    - Function
+      - C. doesn't allow nested subp definition
+      - Javascript -> find parent
+
+      function big() {
+        function subl() {
+          var x=7;
+          sub2();
+        }
+        function sub2() {
+          var y=x; **
+        }
+        var x=3; *
+        sub1();
+      }
+
+      function big() {
+        function sub1() {
+          var x=7; **
+          function sub2(){
+            var y = x; *
+          }
+        }
+        var x=3;
+        sub1();
+      }
+
+    - Order of declaration
+      - C89
+        - Only at beginning of the block
+      - C99
+      - C++
+        for(inti=0;i<b;i++){}
+
+    - Global
+      - PL allow Global?
+        - C, C++, python, ...
+      - PL do not allow global?
+        - pure OOP
+        - Why? security
+        - scope conflicts
+
+Chapter 7: Data Types
+
+Determine range of values possible for our var and op. on them
+  - Explain Primitive DT
+    - directly supported by HW
+  - Explain non-primitive DT
+    - String, enum, struct, union, list, asser list, tuple...
+
+Primitive
+  - Integer
+    - 32 bits, 16 bits, 8 bits,
+      - C: int (signed): -2^15:2^15-1
+      - unsigned: 0:2^32-1
+      - long, short, long long
+      - Overflow
+  - Real number
+    - Standard: IEEE 754
+    - single precision
+      - S Ex Frac
+      - 1  8  23 -> 32 bit
+      - use encoding
+        - +/- infinity
+        - NaN
+        - +/- 1.1*2^38 ->2^308
+        - +/- 2.1*2^38 ->2^-308
+    - Double precision
+      - S E Frac
+      - 1 8 52
+      -

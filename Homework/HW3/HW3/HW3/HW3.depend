@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1455580595 source:/home/maskoken/Dropbox/Documents/COEN171/Homework/HW3/HW3/book.cpp
+	"book.h"
+	<stdlib.h>
+
+1455818924 /home/maskoken/Dropbox/Documents/COEN171/Homework/HW3/HW3/book.h
+	<string>
+
+1455848544 source:/home/maskoken/Dropbox/Documents/COEN171/Homework/HW3/HW3/client.cpp
+	"client.h"
+
+1455830422 /home/maskoken/Dropbox/Documents/COEN171/Homework/HW3/HW3/client.h
+	"person.h"
+
+1455829574 /home/maskoken/Dropbox/Documents/COEN171/Homework/HW3/HW3/person.h
+	<string>
+
+1455849254 source:/home/maskoken/Dropbox/Documents/COEN171/Homework/HW3/HW3/main.cpp
+	"book.h"
+	"person.h"
+	"owner.h"
+	"client.h"
+	"store.h"
+	"iostream"
+
+1455847668 /home/maskoken/Dropbox/Documents/COEN171/Homework/HW3/HW3/owner.h
+	"person.h"
+	"store.h"
+	"book.h"
+	"vector"
+	"client.h"
+
+1455837284 /home/maskoken/Dropbox/Documents/COEN171/Homework/HW3/HW3/store.h
+	"vector"
+	"book.h"
+
+1455849067 source:/home/maskoken/Dropbox/Documents/COEN171/Homework/HW3/HW3/owner.cpp
+	"owner.h"
+	<iostream>
+	<fstream>
+	<string>
+	<algorithm>
+	"client.h"
+
+1455849091 source:/home/maskoken/Dropbox/Documents/COEN171/Homework/HW3/HW3/person.cpp
+	"person.h"
+
+1455849252 source:/home/maskoken/Dropbox/Documents/COEN171/Homework/HW3/HW3/store.cpp
+	"store.h"
+	<iostream>
+	<fstream>
+	<string>
+	<string.h>
+	<strings.h>
+	<algorithm>
+

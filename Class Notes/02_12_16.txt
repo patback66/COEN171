@@ -1,0 +1,57 @@
+02_12_16
+COEN 171
+
+Objectives
+  CH11 ADT
+    - Concepts -> Encapsulation
+      = Dtype: range of values ope -> together in syntactic unit
+
+      C++ -> struct, class
+
+    INformation Hiding
+      - Private
+      - Public
+      - Protected
+
+Class-> Type
+Object -> Instance of class
+
+ADV
+  - Reusability
+  - Learning overhead for C prog is small
+  - Hides information
+    = only present on interface
+    = Security
+
+Disdv
+  - Execution overhead
+  - C++ not pure, C-> compuler god
+  - java
+  - Ruby -> pure OOP
+
+C++
+
+class stack() {
+private:
+  int maxS;
+  int top;
+  int ar*;
+public:
+  stack() {top=-1;max2=99;ar=new int[maxS+1];}
+  ~stack() {delete []ar}
+  void push(int);
+}
+
+SUbstitute the function every time the func is called
+
+void stack::push(int a) {
+  if(maxS==Top)
+    cerr<<...
+  else
+    arp++top]=a;
+}
+
+C++ -> Multiple inheritance
+Parent class, general attributes
+  child -> public private
+  

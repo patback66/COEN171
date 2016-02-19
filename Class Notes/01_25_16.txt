@@ -1,0 +1,74 @@
+01_25_16
+COEN 171
+
+Objectives
+  - Data Types Primitives suported directly by hardware
+  - Non-primitive DT
+  - Type Checking
+
+Primitives
+  - Int
+  - Float
+    - Executed FPV
+    - IEEE754
+      - size
+        - single 32 bits +-10^+-38
+        - double 64 bits +-10^+-308
+        - overflow/underflow support
+  -  Characters
+    - standards to translate char->int
+      - ASCII->8bits
+      - UNICODE
+  - Booleans
+    - C89: No
+      - 0 -> False
+      - 1 -> True
+      if(127)
+      if(0)
+  - Decimals
+      - 10.25
+      - COBOL
+
+Non-Primitives
+  - String
+    - Python: native
+    - C/C++: array of characters, null terminated
+    - Operations: comparation, concatenation, pattern matching
+    - C: String
+    - Java: string, buffer -> class
+    - Define a string: -Descriptor-
+      - name
+      - size
+        - fixed (max->C)
+        - dynamic
+  - Arrays
+    - consecutive cells in memory
+    - Descriptor:
+      - Type of elements stored on array
+      - size - #elements
+      - name
+      - Address -> specifically only need address of element zero
+      - index
+        - pos integer
+          - start 0: C/C++/Java
+          - Start 1: MatLab
+        - negative integer
+          - python, perl
+      - type index
+      - multidimensional
+        - how to store this array in memory
+          - row major
+          - col major
+        - rectangular or not (jagged)
+      - out of range
+        - C/C++->doesn't. Why? Implemented as pointers
+          A[10]=20
+          *(A+10)=20
+      - 1 Dim array
+        A[*]=&A[0]+k*typeElement
+      - 2 Dim array
+        A[1][1] = &A[0][0]+(rowsize*row+col)type
+          A[row][col]
+      - Associative arrays
+        - Key, value
+          - (year->2004, month-?"jan")

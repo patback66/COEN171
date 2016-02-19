@@ -1,0 +1,98 @@
+02_17_16
+COEN 171 Programming Languages
+
+{
+  if n<2 return n;
+  else lib(n-1)+lib(n-2)
+}
+
+--> fib(4) is____
+                    fib 5
+              fib 4        fib 3
+        fib 3     fib 2
+  fib 2     fib 1
+fib 1 fib 0
+
+fact: input var
+      return address lr -> alloc on stack
+
+  base case
+
+  else:
+  sub n n
+  bl fact
+  sub n1 n102
+  bl fact
+
+OOP
+CH12
+  Inheritance
+    - Problems
+    - Solutions
+  Dynamic binding of mathod call to methods
+
+Main Concepts in OOP
+  - user defined abstract DT
+    = Encapsulate
+    = Information hiding
+    = Reuse code
+      - Functions
+      - Data
+  - Extend ADT
+    = Inheritance
+  - Dynamic binding = dynamic dispatch
+
+Inheritance
+  - Base/Parent/superclass
+  - Children/derived/sub class
+
+Information hiding:
+  - public: every object of class
+  - private: only the class itself
+  - protected: you and your children have access
+
+Inheritance
+  - Public -> preserve the information hiding
+    - public-> public, private-> private
+  - Private -> all parents attributes become private
+
+Inherit
+  - Child can create their own attribute/methods (extend)
+  - Overwrite method from parent an dcreate your own implementation
+  - the parent private attribute/methods are not visible to children
+
+  - Parent class will only provide the method interface, not the body
+    = Pure virtual function in c++
+    = If class contains a function like this
+    - is called Abstract class -> can't be instanciated
+
+Single inheritance
+  -Child class can only have one parent (Java)
+Multiple Inheritance
+  -Child class can have as many parents
+
+Diamond problem
+  - with multiple inheritance, which method do you use?
+
+C++ diamond problem
+
+class storable{
+public:
+  storable();
+  virtual void read();
+  virtual void write();
+  ~storable()
+}
+
+class transmitter: public storable {
+public:
+  void write();
+}
+class receiver: public virtual storable {
+public:
+  void read();
+}
+class radio: public transmitter, public receiver {
+public:
+  void read();
+}

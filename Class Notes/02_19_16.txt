@@ -1,0 +1,82 @@
+02_19_16
+COEN 171 Programming Languages
+
+Chapter 12
+  - Problems with OOP
+  - Implemented ADT:classes
+
+1.
+  a.  Multiple inheritance
+    - Diamond Problem
+    - Do the OOP PL support MI?
+  b.  If a class is a Type
+    - Then are subclasses subtypes?
+    - Ada
+  c.  Object slicing
+    class A {
+      public:
+        int i;
+    }
+    class B: public A{
+      public:
+        int b;
+    }
+    A a;
+    B b;
+    a=b;
+  d.  deallocation
+    - Explicit
+    - Implicit
+      = Slow
+  e.  Dynamic Binding of method to method call
+  f.  Nested classes
+    - can we have nested classes?
+      = C++ yes
+      = Encapsulation
+      = Nested class
+        - Public
+        - Private
+                                    ///////cowsay bdgpstwy
+  g.  Aliasing error in Java
+    Rectangle Box1 = new Rectangle(0,0,100,200);
+    Rectangle Box2 = Box1;
+    Box1 == Box2;
+    B[]b = new B[10];
+    A[] a = b;
+    a[0] = new A(); //must use new B() because it is b
+    b[0].Parent(); //error aliasing
+
+2.  Implemented
+  - ADT: classes
+    class A {
+      public:
+        int a;
+        virtual void func(){}
+        virtual void  init(){}
+    }
+    class B{
+      public:
+        int b;
+        virtual void sum () {}
+    }
+    class C: public B, public A{
+      int c;
+      void func(){}
+      void du(){}
+    }
+
+    Stack CIR
+    c
+    b
+    a
+    vtable ptr1*
+    vtable ptr2*
+
+
+    *vtable ptr1
+      fun
+      du
+      A.init
+
+    *vtable ptr2
+      B sum

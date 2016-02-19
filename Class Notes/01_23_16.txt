@@ -1,0 +1,82 @@
+01_23_16
+COEN 171
+
+-1.0e10
+-1.12e-10
+
+Grammar eBNF that check ()
+  - ( -> syntax error
+  - () -> ok
+  - ((( -> syntax error
+  - write grammar to enforce closed parenthesis
+
+  <expr-par> -> (<expr>)|<exp_par>
+
+    ((<exp>))
+    <exp_par>
+    (<exprs>)
+    (<expr>)
+    <expr>
+
+  <exp> -> <fun_param>|<conditional>|<order-precedence>|<for-loop>
+
+  - build a string aaa___aaa
+  - Integer
+  <integer>->[+/-]<const>
+  <const>-><digits>|<digit><const>
+  <digits>->0|...|9
+
+  - Declare Const in c
+    #define name value
+    const type name;
+    const type name=value;
+    <constant>->#define <name> <value>|const <type> <name>
+    <name>-><char>|<char><name>
+    <char>->a|...|z
+    <type>->int|const|double
+    <var>-><integer>|<float>
+
+Type Checking
+  - Coercion rules
+    - no coertion
+
+    <constant>->const int <name>=<integer>|const float <name>=<float>
+
+  - C is not considered strongly typed
+
+
+If statements in Java
+<if-statement>->if(<conditional-stm>)[statements];|if(<conditional-stm>){<statement-list>}
+<statement-list>-><statement>|<statement><statement_list>
+<condition-stmp>-><var><comp-op>(<var>|integer>)|[!]<var>|[!]true|[!]false|<condition-stm><comb-op><condition-stmt>
+<comp-op>->>|>=|<|<=|==|!=
+<comb-op?->|||&&
+
+< <= > >= = == != true false
+
+if(a<b);
+if(a<b)a=10;
+if(a<b){...}
+
+Grammar for floating-point in C
+  <float>->float <name>;
+  <float>->[+|-][<integer-part>].<fraction-part>
+  <integer-part>-><digits>|digits><integer-part>
+  <fraction_part>-><seq-digits>|<sequence-digits>[e[+|-]]<seq-digits>
+
+
+
+Semantic
+  A.  Using hardware
+    - von newman -> memory, cpu< registers
+    - If statement
+      - Read two registers R[a], R[b]
+      - subtract them using ALU and (R[a]-R[b])_==Result
+        - Result=0 -> no change on PC
+        - Result!=0 -> cange the pc
+
+      bne $t1 $t2 label
+      mov $t1,10
+      j exit
+label: mov $t2,20
+exit:
