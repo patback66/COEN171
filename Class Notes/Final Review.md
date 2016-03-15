@@ -103,7 +103,7 @@ result = 3.4 * power(10.0, x);
             - Return value for the functions
             - Temporaries used by the code of the subprogram
 
-![Subprogram Call Stack](/home/maskoken/Dropbox/Documents/COEN171/Class Notes/subprogram call stack.png)
+![Subprogram Call Stack](subprogram call stack.png)
 
     10.3 Implementing Sub Programs with Stack Dynamic Variables
 
