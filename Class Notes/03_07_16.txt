@@ -1,0 +1,59 @@
+03_07_16
+COEN 171 Programming Languages
+
+Objectives
+  - Main Concepts in LP using Prolog
+    = How does Prolog find the solution? Resolution Process
+    = List
+
+Resolution Process
+  - Starts with goal and tries to find a sequence of statements that will make it true
+    = Means: always evaluates the left side of the rule
+    = Name: backwards chaining
+  - Start evaluating statements from top
+  - Multiple subgoals
+    DFS <- better memory, no concurrency
+    BFS
+  - Backtracking
+    = redo
+      likes(jake,chocolate). x=choco
+      likes(jake,milk).
+      likes(maria,water). x=choco fail, go to the first
+
+    like(jake,x),likes(maria,x).
+    multiple subgoals
+    ? male(x),parent(x)
+
+      male(darren).
+      male(eric).
+      ...
+      parent(Jake,ana).
+      parent(eric,bob).
+
+Lists
+  - Manipulations of list in Prolog
+    [] -> Empty list
+    [a,b,c] -> list of characters a,b,c
+    [X,Y,Z]-> list of variables
+    list([a,b,c]).
+
+    [1,2,3]
+    [X|Y]
+    1 [2,3]
+    [X,Y|T]
+    1 2  [3]
+
+    ? member(a,[a,b,c,d]). //Yes
+    member(Elem,[Elem|_]). //blank/underscore
+    member(Elem,[_|List]) :- member(Elem,List_T). //:- implies
+
+  //variables must be upper case, except for _
+
+  ? append([a,b],[c,d,e],L).
+  append([],L1,L1).
+  append([H|L1_T],L2,[H}L3_T]) :- append(L1_T,L2,L3_T).
+
+  ? length([a.b.c],Len). //len = 3
+  length([],0).
+  length([_],1).
+  length([H|T], N) : - length(T,M), M is N+1.

@@ -1,0 +1,89 @@
+03_11_16
+COEN 171 Programming Languages
+
+Objectives
+  - Concurrency
+    1. Explain difference between parallel, concurrent, and distributed programming
+    2. Explain shared vs distributed memory
+    3. Different ways of exploiting parallelism
+
+Final
+  - 11 questions -> grammar question
+  - Similar to the quizzes/midterm
+  - questions in lisp/prolog
+  - chapter in FP/LP closely tied to/explained with code -> how would you do this in x language?
+    = asking lisp, prolog
+    = not assuming knowing any functions etc about the libraries
+
+
+1.   Distributed/Cloud
+  - Use a communication protocol based on send/receive
+  - Network connection
+  - No need to sync = is implied in protocol
+  - Concurrent
+      - Programming Language Features that allow to execute code in parallel/same time/Mainly deal with thread level parallel programs
+      - Making program run fast -> multicore mane core, single -> using cache better
+
+2.  Types of Parallel system
+  a. Shared memory systems
+      - such as shared memory on multicore cpu
+
+      Ex: shared memory
+        for(i=0;i<10^0;i++)
+          sum+=ar[i];
+
+      In parallel
+        1.  Break code into 4 parts
+        ```c
+          for(i=idx; i<=idx+10^9/4;i++)
+              partial_sum[idx]+=ar[i];
+              //need to sync to be sure it is done.
+        ```
+        2.  Garther partial_sum
+        ```c
+          for(i=0;i<4;i++)
+            sum+=partial_sum[i];
+            //race condition - protect the location in memory -> sync
+        ```
+
+      Syncing in parallel
+
+3.    Different ways of exploiting parallelism in a program
+  ##### a.  Instruction
+    - Hardware has been parallel from the beginning but hides the details
+        - Pipeline
+        - IPL
+
+  ##### b.  Task done mainly by OS
+    - Divide independent tasks among cores
+
+  ##### c.  Data
+    - One function applied to huge amounts of data
+    - FP is good for concurrency
+      ````
+        parallel(func)
+        pthread(func) //c
+      ````
+
+  #### d.   Threads
+    - Java library are part of standard process -> program on executing
+      - Loader (O.S).
+        - Determines this is the PC
+        - Instructions loaded on L1
+        - SP
+        - Registers
+        - PE,TLB
+        - ...
+    - Thread
+      - Lightweight process
+      - Minimum amount of code that you can execute. Threads share some state with the process and have also some independent state
+        - Important: Have their own PC - program counter
+        - Share code
+      - Contains:
+        - Thread -> create/destroy
+        - Synchronize threads
+        - Avoid race conditions
+          - Locks
+          - Semaphors
+          - Monitors
+          - Atomic operations

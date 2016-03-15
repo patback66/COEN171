@@ -1,0 +1,39 @@
+02_29_16
+COEN 171 Programming Languages
+
+High Order Functions
+
+Currying
+  - Transforming a function that takes multiple arguments in a way that it can be called as a chain of functions, each with a single argument
+
+  def addA(x:Int, y:Int): Int=x+y
+  def addB(x:Int):Int=>Int=y=x+y
+  val a = Add(10,20)
+  vall b=addB(10)(20)
+
+Lazy Vals
+  - call function, but want to assign the function to a variable without calling the function
+
+HW
+  - use pattern matching
+  - JSON pattern matching
+  - json4s
+
+Advantage FP vs Imperative
+  - Syntax, Semantic -> simple
+  - Express concurrency easily
+
+Disadvantage:
+  - slow
+
+CH16 Logic Programming
+  Base math (logic statements)
+    create
+    knowledge data base
+      fact rules
+        human (woman)
+        woman(Maria)
+        human(Maria)? yes
+
+        Watson IBM
+    

@@ -1,0 +1,70 @@
+02_24_16
+COEN 171 Programming Languages
+
+Objectives
+  - Explain concepts of FP using Lisp/Scheme
+
+Data Types
+    - Atom (a list with only one element)
+    - list
+
+
+Functions
+  - Primitive +,-,*,/,ODD?
+  - DEFINE
+    = Constant (DEFINE pi 3.14)
+    = function - no input param func (DEFINE tau (* 2 pi))
+  - func with param
+    = (DEFINE (cube x) (* x x x))
+    = (cube 5) -> 5^3
+  - conditional
+    = for numeric values if they are equal #T else #F
+    = (= 5 5) -> #T, #t
+    = (= 5 6) -> #F, #f
+  - Conditions
+    = If-Else
+      (IF (< n 1))
+        ( 1 )
+        ( 2 )
+    =   Multiple if
+      (COND
+        (cond1 exp1)
+        (cond2 exp2)
+        [(ELSE expn)]
+      )
+      (COND
+        ((< x y) "X smaller than y")
+        ((> x y) "X is bigger than y")
+        (ELSE :X is equal to Y")
+      )
+  - List functions
+    = CAR -> (CAR (1 2 3)) -> 1
+    = CDR -> (CDR (1 2 3)) -> (2 3)
+    = define a function that returns 2nd element
+      (DEFINE (secondList) (CAR ( CDR list)))
+      (second (1 2 3)) -> 2
+  - Equality for numeric values
+    = EQ ? list1 list2 -> compares the pointers
+      EQ? (AB) (AB) -> #T, #F
+        Fast
+    = EQV? works for lists or numeric values
+      (EQV? (A B) (A B)) -> #T
+      (EQV? 3.0 2) -> F
+      SLOW
+    NULL? list -> #T empty, #F o.w.
+    LIST? a -> #T if a is a list, #F o.w.
+
+  - Function checks if an atom is a member of a list
+    (member 'A '(B C D)) -> #F
+    RECURSION!
+    (DEFINE (member atm list1)
+      (COND
+        (EQ? atm (car list1) #T)
+        (ELSE (member atm (CDR list1)))
+      )
+    )
+  - Transparency in four function
+    var inmutable
+      (CONS 'A '(BC)) -> (ABC
+      (LIST 'op 'or 'pi))
+      

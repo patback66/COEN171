@@ -1,0 +1,66 @@
+03_02_16
+COEN 171 Programming Languages
+Logic Programming
+
+Objectives
+  - CH 16
+  - Introduction main concepts on Logic Programming
+  - Explain basics of declarative calculus
+  - Apply the LP concepts with Prolog
+
+A.
+  - Base logic statements and infers solutions
+    = knowledge
+        human(woman)
+        woman(Maria)
+        --human(Maria)?yes
+  - Declarative
+    = just describe solution
+      Exp: sort(list)
+        IMP -> how sol. (quicksort, inst sort,...)
+        LP -> Describe solution
+           -> sort(list, sorted) => permutation(list) and
+           -> for any element j of sorted list
+                j<j+1
+                sort(list, sorded)
+                sort(list, [1,2,4,5])
+                --> cannot optimize
+    = Advantage: Flexible. Ask different questtions
+    = Disadvantage: does not optimize
+  - Programming Logic Programming is writing a collection o ffacts and rules
+  - Prolog only PL that is LP
+
+B.
+  - Propositions. Logic statements that may be true or not
+  - Logic statements
+    = Simple/atomic proposition
+    = Composite statements
+    = Infer statements
+
+  - atomic
+    = twoparts
+      - functor
+      - parameter list -> 1 parameter 1-tuple, 2 parameter 2-tuple
+      woman(Maria)
+      likes(Maria, dogs)
+
+  - assignment
+    aUb a or b
+    a ^ b a and b
+    a < b b is included in a
+    a > b
+    ! negation
+  - Variables
+    V for all -> Vx.woman(x)>human(x)
+    E exist -> Ex.mother(mary, x)^male(x)
+  - Clausal forms -> standardize statements
+    A U A U V A M B1 ^ B2 ^ B3 ^...^B
+        Then          If
+    If all B's are true then at least one A is true
+  - father(Louis, al) U father(Louis, violet) < (father(al,bob) U mother (violet, bob) U grandfather(Louis, Bob))
+  - Horn clause
+    = statements to left
+      -> 1 -> evaluated
+      -> None -> fact
+      woman(Maria)
+    = use logic proving theorems -> proving a theorem

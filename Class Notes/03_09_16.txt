@@ -1,0 +1,58 @@
+03_09_16
+COEN 171 Programming Languages
+
+Objectives
+  - CH16 LP
+    = Deficiencies in Prolog
+    = Where is Prolog used
+  - CH13 Concurrency
+    = Explain the main concepts of concurrent programming
+
+Deficiencies
+  1)  Logic P. shouldn't be able to influence the execution time
+    - But Prolog does allow you to do that
+      = Order Statements
+        male(bob).
+        male(darren).
+        male(david).
+        ...
+      = Evaluate solution tree
+
+      ?male(X), parent(X, maria).
+      ?parent(X,maria),male(x).
+
+    - Goals:
+      a,b,!,c.
+        if c fails, do not redo a and b
+
+      sort([],S):-S=1,!.
+
+      sort(L,S):-perm(L,M),is_sorted(M,S),!.
+      is_sorted
+
+  2)  Negation
+    x!=Y
+      true
+      Fail
+    It is difficult to make prolog return false
+
+  3)  Goal is based only on the DB
+      Returns true is only valid for the DB
+      Not a universal truth
+    - Algorithms are difficult to optimize
+
+Where is prolog?
+  Nowhere, but elements
+  - DataBase
+    = SQL-Optimizer
+  - natural Language Processor
+    = Watson
+
+Chapter 13: Concurrency
+  - Concurrent -> At the same time
+  - Concurrent Programming ->< features on PL that allows same time execution of the instruction
+    = Java -> threads library
+  - Parallel Programming
+    = Get a program to run faster at scale
+  - Distributed/Cloud Computing
+    = Set of computers interconnected through the network

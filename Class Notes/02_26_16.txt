@@ -1,0 +1,83 @@
+02_26_16
+COEN 171 Programming Languages
+
+Objectives
+Explaining FP concepts using Lisp/scheme
+Explaining FP concepts using scala
+
+Function List
+  CAR
+  CDR
+  EQ?
+  EQV?
+  LIST?
+  NULL?
+  -----
+  (CONS 'A '(BC)) -> (ABC)
+  (CONS '(AB)'(CD))->C(AB)CD
+
+  (LIST 'A 'B 'C)-> (ABC))
+    LET construct
+    //Define fun sol ax^2+bx+c=0
+    (DEFINE (quadsolver a b c)
+      (LET (ra (/SQRT (-(* b b)(* 4 a c) (* 2 a)))(mb (/ (- 0 b) (* 2 a))
+    )
+    (LIST (+ mb ra) (- mb ra))
+  )
+
+Tail Recursion
+  - Compiler -> iteration (becomes very fast)
+
+Apply to all
+  (fx) = x^2, x = (1,2,3,4) ...
+
+  (DEFINE (map fun list)
+    (COND
+      ((NULL? list) ())
+      (CONS (fun (car list)) (map fun (CDR list)))
+      )
+  )
+
+Function composition
+  h(x_ = f(g(x))
+    f(x) = x^2 -> (DEFINE (f x) (* x x))
+    g(x) = 2 + x -> (DEFINE (g x) (+ 2 x))
+    h(x) = (2+x)^2
+      (DEFINE (h g f) (LAMBDA x)
+      (f (g x))
+      )
+
+
+SCALA
+  - Based on java
+  - statically typed, but can make it dynamic
+  - strongly typed
+  - type inference
+    object InferenceTest1 extends App {
+      val x = 1 + 3 * 3 //the  type of x is int
+      val y = x.toString //the type of y is String
+      def succ(x: Int) = x + 1 //returns int values
+    }
+
+    object InferenceTest2{
+      def fac(n: Int) = if(n==0)1 else n * fac(n-1)
+    }
+
+    basic
+      - sort of like python idle
+      - basically everything is an expression
+      - recursion : write tail recursion
+
+High order functions
+  - functions with a function as an input parameter (maps) or return a function)
+  def sqr(x:Int)=x*x
+  def cube(x:int)=x*x*x
+  def sum(f: Int=>Int, a:int, b:Int): Int =
+    if(a==b) f(a) else f(a)+sum(f,a+1,b)
+  println(sum(sqr,1,10))
+  println(sum(cube,1,10))
+  also use lambda:
+  println(sum(x=>x*x,1,10))
+
+Lexical closure
+  

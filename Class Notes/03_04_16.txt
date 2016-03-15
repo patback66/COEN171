@@ -1,0 +1,92 @@
+03_04_16
+COEN 171 Programming Languages
+
+Objectives
+  - Logic Prog. with Prolog
+    = Write statemenets
+      - Simple/atomic
+      - Compound
+      - Goals
+
+Atomic
+  - Constants
+    0- Atoms
+      = string of characters, start with lower case
+        ex: maria, darren, 'Term'
+    0- Number
+      = Integer, floats
+  - Variables
+    = String of character
+    = start UpperCase or _
+    = no binding of variable to value or type at all until inference process
+      X,Dist,-
+  - Terms
+    = Programming in prolog is also writing a sequence of statements
+    = statements are logic statements
+      - constant- Variables
+      - Structures
+      - Horn clause
+        Clause
+          A1 U A2 < B1 ^ B2
+          else      anteants (if)
+        Horn
+          No head -> B1 woman(maria). Facts <- constant
+
+          only one stmt to left -> A, <B, parent(x,y):-father(x,y_)
+    = Compound statement
+      - man(bob), father(bob, maria).
+      facts and rules
+    = Goal statement
+      ? father(x,maria).
+      prompt variable constant
+      Binding x=bob happens only when you are evaluating your goal
+
+      ? father(steve,maria). //false
+      ?father(bob,Y)
+
+      man(bob)father(bob,maria).
+      parent(jon, bob):-father(bob,maria),mother(violet,maria),grandfather(jon,maria)
+
+Arithmetic Operation
+  ? 8 is 5+3
+    true
+    X is 5 + 3
+      true
+    x = 8
+
+    x = 1
+    y = 7
+
+    ? X is 5 + 3
+    8 is x +5
+    x = 0, y = 8
+    ----
+    x = 7, y=7.
+
+    Dist
+    speed(volvo,80).
+    speed(chevy,100).
+    time(volvo,20).
+    time(chevy,10).
+    distance(x,y):-
+      speed(x,5),
+      time(X,T),
+      Y i S*T.
+
+    distance?
+    ? speed(volvo,X). //x=80
+      distance(volvo,X). // x = 80*20
+
+Inference Process
+  1. Goal first and tries a seq. of faacts that evaluate to true
+    -> always left side first
+  2. It always evaluates first statement in DB
+  3. Subgoals
+    - depth first search <- PROLOG
+    - Breath first search
+      = uses more on memory, better on concurrency
+  4. Backtracks
+
+append(List1,List2,List3)
+append([],List2,List3):-append([],List2,List2)
+append([Head|Tail])

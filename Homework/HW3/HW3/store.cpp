@@ -76,6 +76,7 @@ void Store::displayBanner() {
     cout << "/////////////////////////////////////////////\n";
 }
 
+
 //display formatted inventory
 void Store::printInventory(bool showBanner){
     if(showBanner)

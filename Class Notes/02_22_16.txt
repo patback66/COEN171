@@ -1,0 +1,66 @@
+02_22_16
+COEN 171 Programming Languages
+
+Objectives
+  - Explain fundamental concepts in FP
+
+What is FP?
+  Imperative -> Base architecture
+             -> VonNARchitecture
+             -> Variables
+             -> Assignments
+  Functional -> Abstract Architecture
+             -> Writing a math function
+            ADV:
+              - Flexible
+              - Math func --> AI, machine learning
+              - Clean syntax
+            - Concurrency
+            DIS:
+              - Pure FP is slow, though architecture independent
+  FP
+    - Lisp/scheme - mathematica
+    - Haskel
+    - ML
+    - Scala = Hybrid, imp, oop, fp
+
+What is a function?
+  - Mapping of a set (domain) into another set (range/co-domain)
+    y=f(x)
+
+  - Anonymous function
+    = Lambda
+    = function without a name
+     cube(x) = x*x*x
+     (lambda(x) x*x*x) // lambda is the symbol
+
+  - Composition of functions
+    h = f o g
+    h(x) = f(g(x))
+    f(x)=2+x
+    g(x)=3x
+    h=2+(3x)
+
+  - Apply-to-all
+    y=h(x) //x is an atom list
+    alpha(h,(1,2,3)) //alpha means apply
+
+
+LISP
+  - DT -> atom (list with one element)
+       -> list
+  - static typed
+  - cambridge notation -> primitive function:+,-,*,/,SQRT,MIN,MAX)
+    2+5 -> (+ 2 5)
+    2+5+3 -> (+ 2 5 3)
+    2*(5+7) -> (* 2 (+ 5 7))
+  - case insensitive
+
+  list (1 2 3) -> list of atoms 1, 2, an d3
+  function function 1 apply to 2 and 3
+  evalueate function 1 with 2 and 3
+  (DEFINE pi 3.14)
+    - used to create a constant
+  (DEFINE tau (* 2 pi))
+    - define a function
+    - keywords put in uppercase
