@@ -424,7 +424,7 @@ result = 3.4 * power(10.0, x);
 
 ````c
     parallel(func);
-    pthread(func); //c
+    pthread(func);
 ````
 
         - Threads
@@ -438,7 +438,6 @@ result = 3.4 * power(10.0, x);
                 - ...
             - Thread
               - Lightweight process
-
               - Minimum amount of code that you can execute. Threads share some state with the process and have also some independent state
                 - Important: Have their own PC - program counter
                 - Share code

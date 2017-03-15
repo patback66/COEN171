@@ -6,7 +6,7 @@ Objectives
 
 What is FP?
   Imperative -> Base architecture
-             -> VonNARchitecture
+             -> Von Newman architecture
              -> Variables
              -> Assignments
   Functional -> Abstract Architecture
